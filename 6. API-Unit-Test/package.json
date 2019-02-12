@@ -1,0 +1,21 @@
+{
+    "name": "6.-api-unit-test",
+    "version": "1.0.0",
+    "description": "API Unit Test",
+    "main": "app.js",
+    "directories": {
+        "test": "test"
+    },
+    "scripts": {
+        "test": "mocha || true"
+    },
+    "author": "Malcolm R. Kente",
+    "license": "ISC",
+    "devDependencies": {
+        "chai": "^4.2.0",
+        "mocha": "^5.2.0"
+    },
+    "dependencies": {
+        "request": "^2.88.0"
+    }
+}
