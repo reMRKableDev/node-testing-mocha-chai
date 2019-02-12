@@ -1,0 +1,17 @@
+{
+    "name": "1.-simple-unit-test",
+    "version": "1.0.0",
+    "description": "Simple unit test using Mocha and native node Assert library",
+    "main": "index.js",
+    "directories": {
+        "test": "test"
+    },
+    "scripts": {
+        "test": "mocha || true"
+    },
+    "author": "Malcolm R. Kente",
+    "license": "ISC",
+    "devDependencies": {
+        "mocha": "^5.2.0"
+    }
+}

@@ -1,0 +1,17 @@
+{
+    "name": "2.-function-unit-test",
+    "version": "1.0.0",
+    "description": "Unit-testing functions",
+    "main": "app.js",
+    "directories": {
+        "test": "test"
+    },
+    "scripts": {
+        "test": "mocha || true"
+    },
+    "author": "Malcolm R. Kente",
+    "license": "ISC",
+    "devDependencies": {
+        "mocha": "^5.2.0"
+    }
+}

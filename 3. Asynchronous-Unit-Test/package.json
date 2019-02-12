@@ -1,0 +1,18 @@
+{
+    "name": "4.-asynchronous-unit-test",
+    "version": "1.0.0",
+    "description": "Asynchronous Unit Tests",
+    "main": "app.js",
+    "directories": {
+        "test": "test"
+    },
+    "scripts": {
+        "test": "mocha || true"
+    },
+    "author": "Malcolm R. Kente",
+    "license": "ISC",
+    "devDependencies": {
+        "chai": "^4.2.0",
+        "mocha": "^5.2.0"
+    }
+}

@@ -1,0 +1,22 @@
+{
+    "name": "4.-promises-unit-test",
+    "version": "1.0.0",
+    "description": "Promise Unit Test with Chai Assertions & Chai-As-Promised",
+    "main": "app.js",
+    "directories": {
+        "test": "test"
+    },
+    "scripts": {
+        "test": "mocha || true"
+    },
+    "author": "Malcolm R. Kente",
+    "license": "ISC",
+    "devDependencies": {
+        "chai": "^4.2.0",
+        "chai-as-promised": "^7.1.1",
+        "mocha": "^5.2.0"
+    },
+    "dependencies": {
+        "promise": "^8.0.2"
+    }
+}
