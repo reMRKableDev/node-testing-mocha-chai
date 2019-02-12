@@ -8,7 +8,7 @@ let shoppingPromiseResolve = function () {
             let friendAppreciation = 'Thanks alot for the help!';
             resolve(friendAppreciation);
         } else {
-            let friendDissapointment = 'Come on! You literally had one thing to do!!';
+            let friendDissapointment = new Error();
             reject(friendDissapointment);
         }
     });
