@@ -1,20 +1,17 @@
-const assert = require('assert'); // Node Assertion library
+const assert = require("assert");
 
-describe('Name Unit Test', function () {
-    let actualValue = 'Peter';
+// describe() is used for grouping test suites. Describe can be nested.
+// it() is a test case.
 
-    it('tests if actual value of string is equal to the expected value', function () {
-        let expectedValue = 'Peter';
-        //assert(actualValue === expectedValue);
-        assert.strictEqual(actualValue, expectedValue);
-    });
-    it('tests if actual value of string is not equal to the expected value', function () {
-        let expectedValue = 'peter';
-        assert(actualValue !== expectedValue);
-        //assert.notStrictEqual(actualValue, expectedValue);
-    });
-    it('tests if actual value is truthy', function () {
-        assert(actualValue);
-        //assert.ok(actualValue);
-    });
+describe("Name Unit Test", function() {
+  let actualValue = "Peter";
+
+  it("tests if the actualValue is the same as the expectedValue", function() {
+    let expectedValue = "Peter";
+    assert(actualValue === expectedValue);
+  });
+  it("tests if the actualValue isn't similar to the expectedValue", function() {
+    let expectedValue = "peter";
+    assert(actualValue !== expectedValue);
+  });
 });
