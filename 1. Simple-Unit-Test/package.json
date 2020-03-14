@@ -12,6 +12,10 @@
   "author": "Malcolm R. Kente",
   "license": "ISC",
   "devDependencies": {
+    "minimist": "^1.2.5",
     "mocha": "^7.1.0"
+  },
+  "dependencies": {
+    "mkdirp": "^1.0.3"
   }
 }
