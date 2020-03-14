@@ -13,6 +13,6 @@
     "license": "ISC",
     "devDependencies": {
         "minimist": "^1.2.5",
-        "mocha": "^5.2.0"
+        "mocha": "^7.1.0"
     }
 }
