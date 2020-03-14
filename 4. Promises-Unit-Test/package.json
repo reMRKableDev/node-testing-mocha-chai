@@ -14,9 +14,9 @@
     "devDependencies": {
         "chai": "^4.2.0",
         "chai-as-promised": "^7.1.1",
-        "mocha": "^5.2.0"
+        "mocha": "^7.1.0"
     },
     "dependencies": {
-        "promise": "^8.0.2"
+        "promise": "^8.1.0"
     }
 }
