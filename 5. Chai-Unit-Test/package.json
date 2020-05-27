@@ -12,8 +12,8 @@
   "author": "Malcolm R. Kente",
   "license": "ISC",
   "devDependencies": {
-    "chai": "^4.2.0",
-    "minimist": "^1.2.5",
-    "mocha": "^7.1.0"
+    "chai": "4.2.0",
+    "minimist": "1.2.5",
+    "mocha": "7.1.0"
   }
 }
