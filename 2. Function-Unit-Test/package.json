@@ -12,7 +12,7 @@
     "author": "Malcolm R. Kente",
     "license": "ISC",
     "devDependencies": {
-        "minimist": "1.2.5",
+        "minimist": "1.2.6",
         "mocha": "8.1.3"
     }
 }
