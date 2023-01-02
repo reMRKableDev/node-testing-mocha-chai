@@ -13,7 +13,7 @@
   "license": "ISC",
   "devDependencies": {
     "minimist": "1.2.6",
-    "mocha": "8.1.3"
+    "mocha": "10.2.0"
   },
   "dependencies": {
     "mkdirp": "^1.0.3"
