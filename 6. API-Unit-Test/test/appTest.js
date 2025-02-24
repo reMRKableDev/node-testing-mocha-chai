@@ -1,20 +1,37 @@
 const app = require("../app");
 const chai = require("chai");
-
 const assert = chai.assert;
 
-describe("API Unit Test", function() {
-  it("tests if API call does not return an empty value", async () => {
-    const apiCallTest = await app.apiCall();
+describe("apiCall()", function () {
+  let apiResponse;
 
-    assert.isNotEmpty(apiCallTest);
-    assert.isNotNull(apiCallTest);
+  before(async function () {
+    this.timeout(5000);
+    apiResponse = await app.apiCall();
   });
 
-  it("tests if API call returns an array with multiple elements", async () => {
-    const apiCallTest = await app.apiCall();
+  it("should return a non-empty response", () => {
+    assert.isNotEmpty(apiResponse, "API response should not be empty");
+    assert.isNotNull(apiResponse, "API response should not be null");
+  });
 
-    assert.isArray(apiCallTest);
-    assert.isAbove(apiCallTest.length, 1);
+  it("should return an array with multiple elements", () => {
+    assert.isArray(apiResponse, "API response should be an array");
+    assert.isAbove(
+      apiResponse.length,
+      1,
+      "Array should contain multiple elements"
+    );
+  });
+
+  it("should return todo objects with the correct structure", () => {
+    const firstTodo = apiResponse[0];
+    assert.property(firstTodo, "id", "Todo should have an id");
+    assert.property(firstTodo, "title", "Todo should have a title");
+    assert.property(
+      firstTodo,
+      "completed",
+      "Todo should have a completed status"
+    );
   });
 });
