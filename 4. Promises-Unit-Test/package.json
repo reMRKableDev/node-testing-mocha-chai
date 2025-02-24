@@ -16,7 +16,7 @@
         "chai-as-promised": "7.1.1",
         "minimist": "1.2.6",
         "mkdirp": "1.0.4",
-        "mocha": "10.2.0"
+        "mocha": "10.8.2"
     },
     "dependencies": {
         "promise": "^8.1.0"
