@@ -1,21 +1,18 @@
 const assert = require("assert");
 const app = require("../app");
 
-// describe() is used for grouping test cases. Describe can be nested.
-// it() is a test case
-
-describe("Async Unit Test", function() {
-  it("tests if the actual value of retrieved data is equal to expected value", function(done) {
-    app.readFile(function(error, data) {
-      let actualValue = data;
-      let expectedValue = "hello there!";
-      assert.strictEqual(actualValue, expectedValue);
+describe("File Reading", () => {
+  it("should read the correct content from file", (done) => {
+    app.readFile((error, data) => {
+      const expectedContent = "hello there!";
+      assert.strictEqual(data, expectedContent);
       done();
     });
   });
-  it("tests if there is no error thrown when running function", function(done) {
-    app.readFile(function(error, data) {
-      assert.ifError(null);
+
+  it("should not encounter errors during file reading", (done) => {
+    app.readFile((error, data) => {
+      assert.strictEqual(error, null);
       done();
     });
   });
