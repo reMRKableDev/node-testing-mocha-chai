@@ -1,4 +1,4 @@
-//Functions wihout arguments
+//Functions without arguments
 let booleanExpression = function() {
   return true;
 };
