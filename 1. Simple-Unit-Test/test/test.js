@@ -3,13 +3,19 @@ const assert = require("assert");
 // describe() is used for grouping test suites. Describe can be nested.
 // it() is a test case.
 
-describe("Name Unit Test", function () {
-  let actualValue = "Peter";
-
-  it("tests if the actualValue is the same as the expectedValue", function () {
-    assert(actualValue === "Peter");
+describe("String Comparison", () => {
+  const testName = "Peter";
+  
+  it("should match exact case-sensitive string", () => {
+    assert(testName === "Peter");
   });
-  it("tests if the actualValue isn't similar to the expectedValue", function () {
-    assert(actualValue !== "peter");
+  
+  it("should not match case-insensitive string", () => {
+    assert(testName !== "peter");
+  });
+  
+  it("should be case-sensitive when comparing strings", () => {
+    const lowerCaseName = testName.toLowerCase();
+    assert(testName !== lowerCaseName);
   });
 });
