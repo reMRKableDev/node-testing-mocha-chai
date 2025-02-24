@@ -7,8 +7,7 @@ on:
       - synchronize
       - reopened
       - labeled
-
-  workflow_dispatch:
+  workflow_dispatch: # ✅ Allow manual runs
 
 permissions:
   pull-requests: write
@@ -24,13 +23,19 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      # ✅ Step 2: Authenticate GitHub CLI
+      # ✅ Step 2: Set Git Bot Identity 
+      - name: Set Git Identity
+        run: |
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "github-actions[bot]"
+
+      # ✅ Step 3: Authenticate GitHub CLI
       - name: Authenticate GitHub CLI
         run: gh auth setup-git
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      # ✅ Step 3: Fetch all PRs sorted from oldest to newest
+      # ✅ Step 4: Fetch all PRs sorted from oldest to newest
       - name: Get Oldest PRs
         id: get-prs
         run: |
@@ -39,17 +44,23 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      # ✅ Step 4: Process PRs One by One
+      # ✅ Step 5: Process PRs One by One
       - name: Process PRs
         run: |
           for pr in $prs; do
             echo "Processing PR #$pr"
             gh pr checkout $pr
 
-            # ✅ Find all subfolders with a package.json
-            for dir in $(find . -type f -name "package.json" -not -path "*/node_modules/*" -exec dirname {} \;); do
+            # ✅ Find all valid subfolders with a package.json
+            for dir in $(find . -type f -name "package.json" -not -path "*/node_modules/*" -exec dirname {} \; | sort -u); do
               echo "Processing dependencies in $dir..."
               
+              # ✅ Ensure package.json exists in the current branch
+              if [ ! -f "$dir/package.json" ]; then
+                echo "Skipping $dir - package.json not found."
+                continue
+              fi
+
               # ✅ Handle package.json merge conflicts
               git checkout --ours "$dir/package.json" || true
               git add "$dir/package.json" || true
@@ -71,9 +82,9 @@ jobs:
             # ✅ Approve PR before merging
             gh pr review $pr --approve
 
-            # ✅ Merge PR when all checks pass
-            gh pr merge $pr --squash --auto
-            echo "Merged PR #$pr successfully!"
+            # ✅ Merge PR when possible, otherwise skip
+            gh pr merge $pr --squash --auto || echo "Skipping auto-merge due to branch protection settings."
+            echo "Processed PR #$pr!"
           done
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
