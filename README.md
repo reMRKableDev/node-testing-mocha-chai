@@ -78,6 +78,6 @@ npx mocha appTest.js
 - Providing meaningful error messages
 - Proper error handling in implementation code
 
-## Contributing
+## Contributing 🤝
 
 Contributions are welcome! Please feel free to submit a Pull Request.
