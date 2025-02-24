@@ -1,37 +1,49 @@
-//Functions without arguments
-let booleanExpression = function() {
-  return true;
+/**
+ * @module app
+ * @description A collection of utility functions
+ */
+
+/**
+ * @returns {boolean} Always returns true
+ */
+const booleanExpression = () => true;
+
+/**
+ * @returns {number} Result of multiplying 3 by 3
+ */
+const simpleCalculation = () => 3 * 3;
+
+/**
+ * @returns {Array<number>} An array containing numbers 1 through 5
+ */
+const arrayBuilder = () => {
+  const numbers = [];
+  numbers.push(1, 2, 3, 4, 5);
+  return numbers;
 };
 
-let simpleCalculation = function() {
-  let result = 3 * 3;
-  return result;
-};
-
-let arrayBuilder = function() {
-  let result = [];
-  result.push(1, 2, 3, 4, 5);
-  return result;
-};
-
-let objectCreator = function() {
-  let result = {
+/**
+ * @returns {Object} An object with name and age properties
+ */
+const objectCreator = () => {
+  return {
     name: "es",
-    age: "21"
+    age: 21,
   };
-
-  return result;
 };
 
-// Functions with arguments.
-let validUser = function(listOfUsers, user) {
-  return listOfUsers.includes(user);
-};
+/**
+ * Checks if a user exists in a list of users
+ * @param {Array<string>} listOfUsers - Array of usernames
+ * @param {string} user - Username to check
+ * @returns {boolean} True if user exists in the list, false otherwise
+ */
+const validUser = (listOfUsers, user) => listOfUsers.includes(user);
 
 module.exports = {
   booleanExpression,
   simpleCalculation,
   arrayBuilder,
   objectCreator,
-  validUser
+  validUser,
 };

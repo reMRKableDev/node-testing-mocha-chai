@@ -1,65 +1,69 @@
 const assert = require("assert");
 const app = require("../app");
 
-// describe() is used for grouping test suites. Describe can be nested.
-// it() is a test case
+describe("Functions", () => {
+  describe("booleanExpression()", () => {
+    const result = app.booleanExpression();
 
-describe("Functions Test Suite", function() {
-  describe("Boolean Expression Unit Test", function() {
-    let actualValue = app.booleanExpression();
-    it("tests if actualValue is the same as expectedValue", function() {
-      let expectedValue = true;
-      assert(actualValue === expectedValue);
+    it("should return true", () => {
+      assert(result === true);
     });
-    it("tests if actual value is of type Boolean", function() {
-      assert(typeof actualValue === "boolean");
+
+    it("should return a boolean value", () => {
+      assert(typeof result === "boolean");
     });
   });
-  describe("Simple Calculation Unit Test", function() {
-    let actualValue = app.simpleCalculation();
-    it("tests if the actual value of number is an Integer", function() {
-      assert(Number.isInteger(actualValue));
+
+  describe("simpleCalculation()", () => {
+    const result = app.simpleCalculation();
+
+    it("should return an integer", () => {
+      assert(Number.isInteger(result));
     });
-    it("tests if actual value of number is equal to the expected value", function() {
-      let expectedValue = 9;
-      assert(actualValue === expectedValue);
-    });
-  });
-  describe("Array Unit Test", function() {
-    let actualValue = app.arrayBuilder();
-    it("tests if actual value of array is equal to the expected value", function() {
-      let expectedValue = [1, 2, 3, 4, 5];
-      assert.deepEqual(actualValue, expectedValue);
-    });
-    it("tests if actual value of array is not equal to the expected value", function() {
-      let expectedValue = [1, 2, 3, 5];
-      assert.notDeepEqual(actualValue, expectedValue);
+
+    it("should return 9", () => {
+      assert(result === 9);
     });
   });
-  describe("Object Unit Test", function() {
-    let actualValue = app.objectCreator();
-    it("tests if actual value of object is equal to the expected value", function() {
-      let expectedValue = {
+
+  describe("arrayBuilder()", () => {
+    const result = app.arrayBuilder();
+
+    it("should return [1, 2, 3, 4, 5]", () => {
+      assert.deepEqual(result, [1, 2, 3, 4, 5]);
+    });
+
+    it("should not return [1, 2, 3, 5]", () => {
+      assert.notDeepEqual(result, [1, 2, 3, 5]);
+    });
+  });
+
+  describe("objectCreator()", () => {
+    const result = app.objectCreator();
+
+    it("should return object with name 'es' and age 21", () => {
+      assert.deepEqual(result, {
         name: "es",
-        age: "21"
-      };
-      assert.deepEqual(actualValue, expectedValue);
+        age: 21, // Updated to match change in app.js
+      });
     });
-    it("tests if actual value of object is not equal to the expected value", function() {
-      let expectedValue = {
+
+    it("should not return object with different values", () => {
+      assert.notDeepEqual(result, {
         name: "se",
-        age: "19"
-      };
-      assert.notDeepEqual(actualValue, expectedValue);
+        age: 19,
+      });
     });
   });
-  describe("Function w/ args Unit Test", function() {
-    it("tests if user passed in params is valid. Returns: true", function() {
-      let isValid = app.validUser(["sally", "jon"], "sally");
+
+  describe("validUser()", () => {
+    it("should return true for existing users", () => {
+      const isValid = app.validUser(["sally", "jon"], "sally");
       assert(isValid);
     });
-    it("tests if user passed in params is valid. Returns: false", function() {
-      let isValid = app.validUser(["sally", "jon"], "duck");
+
+    it("should return false for non-existing users", () => {
+      const isValid = app.validUser(["sally", "jon"], "duck");
       assert(!isValid);
     });
   });
