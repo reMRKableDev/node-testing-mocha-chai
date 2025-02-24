@@ -56,9 +56,9 @@ cd <subfolder-name>
 npx mocha appTest.js
 ```
 
-## Key Concepts Shown 🔑
+## Key Concepts 🔑
 
-1. **Function Testing**: Testing return values and types
+1. **Function Testing**  Testing return values and types
 2. **String Operations**: Case sensitivity and string comparison
 3. **Asynchronous Operations**: Handling callbacks and file operations
 4. **Promises**: Testing resolved and rejected promises
