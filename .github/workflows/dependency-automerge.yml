@@ -8,6 +8,8 @@ on:
       - reopened
       - labeled
 
+  workflow_dispatch:
+
 permissions:
   pull-requests: write
   contents: write
